@@ -1,0 +1,5 @@
+{
+  source: object,
+  latlon: [150, 150],
+  view: leaflet obejct
+}

@@ -1,0 +1,22 @@
+[ 
+{
+  "type": "Data0",
+  "lat": 150,
+  "lon": 150
+},
+{
+  "type": "Data1",
+  "lat": 151,
+  "lon": 151
+},
+{
+  "type": "Data2",
+  "lat": 153,
+  "lon": 153
+},
+{
+  "type": "Data3",
+  "lat": 154,
+  "lon": 154
+},
+]
