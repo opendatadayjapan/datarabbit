@@ -24,7 +24,7 @@ function CircleView(point, map){
 		color: _color,
 		fillColor: _color,
 		fillOpacity: 0.5
-	}).addTo(map).bindPopup("<b>" + point.value + "</b><br />" + point.type);
+	}).addTo(map).bindPopup("<b>" + point.type + "</b><br />" + point.value + "人");
 }
 
 CircleView.prototype.show = function(){
