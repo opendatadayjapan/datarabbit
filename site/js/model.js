@@ -13,6 +13,7 @@ function PointModel (Point) {
 
 PointModel.prototype.parse = function( Point) {
 	this.source = Point;
+	this.type = Point.type ? Point.type : "_";
 	this.latlon = [ Point.lat, Point.lon];
 	this.value = Point.value;
 	// this.view = // Leaflet object?
@@ -23,26 +24,7 @@ PointModel.prototype.toString = function() {
 }
 
 //
-// Loading with jQuery
-//
 
-var my_url = "./data/input.json";
-$.getJSON( my_url, function(data) {
-	input_json = data;
-	console.log( "model.ks: got json data")
-	console.log( "model.js: check 2" + input_json)
-
-    var modelList = [];
-    for (var i = 0; i < input_json.length; i++)
-    { 
-        modelList.push( new PointModel(input_json[i]));
-    }
-
-    console.log( "model.js: check 3" + modelList)
-});
-
-PointModel.prototype.dispatch = function (e) {
-}
 
 //input_json = [ 
 //{

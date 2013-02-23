@@ -27,7 +27,7 @@ function MapView(){
 
         var _this = this;
 		function onMapClick(e) {
-			_this.dispatch({type: "hyde_point"});
+			_this.dispatch({type: "show_point"});
 		}
 		map.on('click', onMapClick);
 }
