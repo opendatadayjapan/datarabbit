@@ -1,34 +1,44 @@
-function MapController (id){
+function MapController(id){
     this.init(id);
-    this.pointModelList = new Array();
-    this.viewpadPointModels = new Array();
-
-    this.load("./data/input.json");
+    this.pointModelList = {};
+    this.viewpadPointModels = [];
+    this.load("./data/input_01.json");
 }
 
 
 MapController.prototype.init = function (id){
-    this.view = new MapView(id);
+    this.view = new MapView(id); 
+    var self = this;
+    this.view.dispatch = function (e){
+        if(e.type === "hyde_points"){
+			 mapController.view.hidePoints(mapController.pointModelList[e.etype]);
+        }else if(e.type === "show_points"){
+            mapController.view.showPoints(mapController.pointModelList[e.etype]);
+        }
+}
 }
 
 MapController.prototype.load = function(src){
-     var self = this;
+    var self = this;
+   
     $.getJSON( src, function(data) {
-        input_json = data;
-        console.log( "model.ks: got json data")
-        console.log( "model.js: check 2" + input_json)
-
+        var input_json = data;
+		var hashList = [];
         for (var i = 0; i < input_json.length; i++)
         {
-           self.pointModelList.push( new PointModel(input_json[i]));
+			var point = new PointModel(input_json[i]);
+            if(self.pointModelList[(point.type)] == null){
+               self.pointModelList[(point.type)] = []; 
+            }
+			console.log(point.type)
+           self.pointModelList[(point.type)].push(point);
         }
 
-        console.log( "model.js: check 3" + self.poitModelList)
     });
 }
 
 MapController.prototype.showPoints = function (type){
-
+   
 }
 
 MapController.prototype.hidePoitns = function (type){
