@@ -3,18 +3,24 @@ function CircleView(point, map){
 //	L.marker([point.lat,point.lon]).addTo(map)
 //			.bindPopup("<b>" + point.value + "</b><br />" + point.type).openPopup();
 
-    var _color = "#666";
+    var _color = "#000";
     var _type = point.type;
 
     if(_type === "登録児童数小学1年生"){
-    	_color = "green";
+    	_color = "#ff7733";
     } else if(_type === "登録児童数小学2年生"){
-        _color = "blue";
+        _color = "#006363";
     } else if(_type === "登録児童数小学3年生"){
-        _color = "red";
-    } 
+        _color = "#86B3D2";
+    } else if(_type === "登録児童数小学4年生"){
+        _color = "#ffe540";
+    } else if(_type === "登録児童数小学5年生"){
+        _color = "#6A237E";
+    } else if(_type === "登録児童数小学6年生"){
+        _color = "#2d3c82";
+    }
 
-	L.circle([point.lat,point.lon], point.value, {
+	L.circle([point.lat,point.lon], point.value * 1.5, {
 		color: _color,
 		fillColor: _color,
 		fillOpacity: 0.5
@@ -30,7 +36,7 @@ CircleView.prototype.hide = function(){
 }
 
 function MapView(){
-	this.map = L.map('map').setView([35.694003,139.753595], 14);
+	this.map = L.map('map').setView([35.694003,139.753595], 15);
 
 	L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
 		maxZoom: 20,
