@@ -1,24 +1,27 @@
-var fucntion Controller (){
-    this.init();
-    this.showPoints(type);
-    this.hidePoitns(type);
+function MapController (id){
+    this.init(id);
     this.pointModelList = new Array();
     this.viewpadPointModels = new Array();
 }
 
-Controller.prototype.init = function (){
+
+MapController.prototype.init = function (id ){
+    this.view = new MapView(id);
+}
+
+MapController.prototype.load = function(){
     
 }
 
-Controller.prototype.load = function(){
+MapController.prototype.showPoints = function (type){
+}
+
+MapController.prototype.hidePoitns = function (type){
     
 }
 
-Controller.prototype.showPoints = function (type){
-    
-}
+$(function(){
+  var mapController = new MapController ("map");
+});
 
-Controller.prototype.hidePoitns = function (type){
-    
-}
 

@@ -45,6 +45,3 @@ MapView.prototype.dispatch = function (e) {
     (e.type)
 }
 
-$(function(){
-    new MapView();
-});
