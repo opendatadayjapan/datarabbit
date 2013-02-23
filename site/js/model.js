@@ -17,6 +17,15 @@ PointModel.prototype.parse = function( Point) {
 	// this.view = // Leaflet object?
 }
 
+PointModel.prototype.toMapPoint = function() {
+	return {
+		type:"",
+		lat: this.latlon[0],
+		lon: this.latlon[1],
+		value: this.value
+	};
+}
+
 PointModel.prototype.toString = function() {
 	return "point: (" + this.latlon[0] + ", " + this.latlon[1] + ", " + this.value + ")";
 }
@@ -32,7 +41,7 @@ PointModel.prototype.toString = function() {
 //	} ]
 
 var url = "data/input_01.json";
-$.getJSON( my_url, function(data) {
+$.getJSON( url, function(data) {
 	input_json = data;
 	console.log( "model.js: got json data")
 	console.log( "model.js: check 2" + input_json)
@@ -45,6 +54,18 @@ $.getJSON( my_url, function(data) {
     //	document.write( model + "<br />");
     //}
 });
+
+
+function pointModelsToMapPoints( pointModels) {
+	var points = [];
+	
+	for ( var i = 0; i < pointModels.length; i++ ) {
+		
+	    points.push( pointModels[i].toMapPoint());
+	}
+	return points;
+}
+
 
 PointModel.prototype.dispatch = function (e) {
 }
